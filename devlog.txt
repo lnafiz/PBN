@@ -70,8 +70,8 @@ Brian :: Proposal drafting
 
 2022-02-14
 --------------------------------------------------------------
-Nafiz :: Proposal additions
-Prattay :: Proposal edits
-Brian :: Woo.java main method creation
+Nafiz :: Proposal additions and edits
+Prattay :: Proposal edits, Blackjack.java edits
+Brian :: Woo.java main method creation, Blackjack.java additions
 ==============================================================
 
