@@ -63,7 +63,15 @@ tales of wisdom gained...
 
 2022-01-13
 --------------------------------------------------------------
-Nafiz :: Initial creation.
+Nafiz :: Initial creation
 Prattay :: Proposal drafting
 Brian :: Proposal drafting
 ==============================================================
+
+2022-02-14
+--------------------------------------------------------------
+Nafiz :: Proposal additions
+Prattay :: Proposal edits
+Brian :: Woo.java main method creation
+==============================================================
+
