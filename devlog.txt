@@ -68,10 +68,17 @@ Prattay :: Proposal drafting
 Brian :: Proposal drafting
 ==============================================================
 
-2022-02-14
+2022-01-14
 --------------------------------------------------------------
 Nafiz :: Proposal additions and edits
 Prattay :: Proposal edits, Blackjack.java edits
 Brian :: Woo.java main method creation, Blackjack.java additions
 ==============================================================
 
+2022-01-17
+--------------------------------------------------------------
+Nafiz :: Proposal additions and edits
+Prattay :: Proposal edits
+Brian :: First attempt at coding, first draft made. Later plans
+         made to further improve and flesh out code.
+==============================================================
