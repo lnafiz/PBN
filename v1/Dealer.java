@@ -1,6 +1,6 @@
 public class Dealer extends Gambler{
   
-  public Protagonist(String input){
+  public Dealer(String input){
     super();
     
   }
