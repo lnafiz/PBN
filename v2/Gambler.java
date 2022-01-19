@@ -24,9 +24,9 @@ public class Gambler{
     hand.add(splitCard);
     inHand = Deck.valueOf(splitCard);
     hit();
-    System.out.println(hand); // diag
+    // System.out.println(hand); // diag
     aceCheck();
-    System.out.println("inHand: " + inHand); // diag
+    // System.out.println("inHand: " + inHand); // diag
   }
 
   // SET THIS TO DEALER'S NEXTMOVE

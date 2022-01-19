@@ -22,7 +22,7 @@ public class Woo{
     Gambler[] totalBots = new Bot[0];
     ArrayList totalPlayers = new ArrayList<Gambler>();
     Gambler humanPlayer = new Player(deck.cardsRemaining, totalPlayers);
-    System.out.println(deck.cardsRemaining); // diag
+    // System.out.println(deck.cardsRemaining); // diag
 
     InputStreamReader isr = new InputStreamReader(System.in);
     BufferedReader in = new BufferedReader(isr);
@@ -52,15 +52,15 @@ public class Woo{
     }
     totalPlayers.add(humanPlayer);
 
-    System.out.println("diag: " + totalPlayers); // diag
+    // System.out.println("diag: " + totalPlayers); // diag
 
-    System.out.println("Remaining cards in the deck: " + deck.cardsRemaining); // diag
-    System.out.println("Remaining # of cards: " + deck.cardsRemaining.size()); // diag
+    // System.out.println("Remaining cards in the deck: " + deck.cardsRemaining); // diag
+    // System.out.println("Remaining # of cards: " + deck.cardsRemaining.size()); // diag
 
     for (int i = 0; i < totalPlayers.size(); i++){
       Gambler gambler;
       int gamblerHand;
-      System.out.println(totalPlayers.get(i)); // diag
+      // System.out.println(totalPlayers.get(i)); // diag
       if (totalPlayers.get(i) instanceof Bot){
         gambler = (Bot)(totalPlayers.get(i));
       }

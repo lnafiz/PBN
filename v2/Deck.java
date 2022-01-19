@@ -26,7 +26,7 @@ public class Deck{
 
   public static int valueOf(String card){
     String value = card.substring(0, card.length() - 1);
-    System.out.println(card + "'s value is " + value + ". card's length() is " + card.length()); // diag
+    // System.out.println(card + "'s value is " + value + ". card's length() is " + card.length()); // diag
     int i = -1;
     if (value.equals("J") || value.equals("Q") || value.equals("K")){
       return 10;
