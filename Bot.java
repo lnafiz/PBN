@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Bot extends Gambler{
   public Bot(ArrayList deckOfCards){
     super(deckOfCards);
-    System.out.println(hand); // diag
-    System.out.println("inHand: " + inHand); // diag
+    // System.out.println(hand); // diag
+    // System.out.println("inHand: " + inHand); // diag
   }
 
   public boolean nextMove(){
