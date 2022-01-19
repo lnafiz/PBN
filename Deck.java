@@ -6,27 +6,40 @@
 
 import java.util.ArrayList;
 
-// potential idea: create ArrayList of ArrayList to avoid having to track 2 ArrayLists at once
-
 public class Deck{
   public ArrayList cardsRemaining = new ArrayList<String>();
-  public ArrayList cardValuesRemaining = new ArrayList<String>();
 
   public Deck(){
     for (String element : DECK){ cardsRemaining.add(element); }
-    for (int value : DECK_VALUES){ cardValuesRemaining.add(value); }
-    shuffle(cardsRemaining, cardValuesRemaining);
+    shuffle(cardsRemaining);
   }
 
-  private static void shuffle( ArrayList cr, ArrayList cvr ) {
+  private static void shuffle( ArrayList cr ) {
     int randomIndex;
     for( int i = cr.size()-1; i > 0; i-- ) {
       //pick an index at random
       randomIndex = (int)( (i+1) * Math.random() );
       //swap the values at position i and randomIndex
       cr.set( i, cr.set( randomIndex, cr.get(i) ) );
-      cvr.set( i, cvr.set( randomIndex, cvr.get(i) ) );
     }
+  }
+
+  public static int valueOf(String card){
+    String value = card.substring(0, card.length() - 3); // -3 because the suit counts as 3 characters.
+    // System.out.println(card + "'s value is " + value + ". card's length() is " + card.length()); // diag
+    int i = -1;
+    if (value.equals("J") || value.equals("Q") || value.equals("K")){
+      return 10;
+    }
+    else if (value.equals("A")){
+      return 11;
+    }
+    else{
+      try{
+        i = Integer.parseInt(value);
+      } catch(NumberFormatException ex){}
+    }
+    return i; // if it gets to this, there is something wrong.
   }
 
   private final String[] DECK = {
@@ -34,11 +47,5 @@ public class Deck{
   "A♣", "2♣", "3♣", "4♣", "5♣", "6♣", "7♣", "8♣", "9♣", "10♣", "J♣", "Q♣", "K♣",
   "A♥", "2♥", "3♥", "4♥", "5♥", "6♥", "7♥", "8♥", "9♥", "10♥", "J♥", "Q♥", "K♥",
   "A♦", "2♦", "3♦", "4♦", "5♦", "6♦", "7♦", "8♦", "9♦", "10♦", "J♦", "Q♦", "K♦"};
-
-  private final int[] DECK_VALUES = {
-    11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-    11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-    11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-    11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
 
 }
