@@ -42,6 +42,16 @@ public class Deck{
     return i; // if it gets to this, there is something wrong.
   }
 
+
+// should be in Woo.java
+  // public int countCards(ArrayList cr){
+  //   int total = 0;
+  //   for (String element : DECK){
+  //     if
+  //   }
+  //
+  // }
+
   private final String[] DECK = {
   "A♠", "2♠", "3♠", "4♠", "5♠", "6♠", "7♠", "8♠", "9♠", "10♠", "J♠", "Q♠", "K♠",
   "A♣", "2♣", "3♣", "4♣", "5♣", "6♣", "7♣", "8♣", "9♣", "10♣", "J♣", "Q♣", "K♣",
