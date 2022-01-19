@@ -25,7 +25,7 @@ public class Deck{
   }
 
   public static int valueOf(String card){
-    String value = card.substring(0, card.length() - 3); // -3 because the suit counts as 3 characters.
+    String value = card.substring(0, card.length() - 2); // -3 because the suit counts as 3 characters.
     // System.out.println(card + "'s value is " + value + ". card's length() is " + card.length()); // diag
     int i = -1;
     if (value.equals("J") || value.equals("Q") || value.equals("K")){
