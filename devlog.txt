@@ -82,3 +82,13 @@ Prattay :: Proposal edits
 Brian :: First attempt at coding, first draft made. Later plans
          made to further improve and flesh out code.
 ==============================================================
+
+2022-01-18
+--------------------------------------------------------------
+Nafiz :: Collaboration on v1
+Prattay :: Collaboration on v1
+Brian :: Collaboration on v1
+
+v1: Progresses to manipulating hand, reduced uses of unnecessary
+    arrays, creation of subclasses of Gambler. General bug fixes.
+==============================================================
