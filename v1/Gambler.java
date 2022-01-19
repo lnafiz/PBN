@@ -46,7 +46,7 @@ public class Gambler{
     //   return doubleDown();
     // }
     // // split is a Player-only option
-    // return false;
+    return false;
   }
 
   public int getInHand(){

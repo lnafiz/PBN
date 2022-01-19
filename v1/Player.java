@@ -16,7 +16,7 @@ public class Player extends Gambler{
   // true = turn ends
   // false = turn keeps going
   public boolean nextMove(){
-    int input;
+    int input = 0;
     InputStreamReader isr = new InputStreamReader(System.in);
     BufferedReader in = new BufferedReader(isr);
     System.out.println("Your turn!");
