@@ -1,4 +1,6 @@
-import java.io.*;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Player extends Gambler{
@@ -21,13 +23,13 @@ public class Player extends Gambler{
     BufferedReader in = new BufferedReader(isr);
     System.out.println("Your turn!");
     System.out.println("Your hand is... " + showHand());
+    System.out.println("The value of your hand is " + inHand + ".");
     System.out.println("What would you like to do? Your options (right now) are:");
-    System.out.println("1: hit \n 2: stand \n 3: double \n 4: split \n 5: count cards (eta s0n)");
+    System.out.println(" 1: hit \n 2: stand \n 3: double \n 4: split \n 5: count cards (eta s0n)");
     try { input = Integer.parseInt(in.readLine()); }
     catch (IOException e) {}
 
     if (input == 1){
-      System.out.println("Hit!");
       hit();
     }
     else if (input == 2){
@@ -41,17 +43,19 @@ public class Player extends Gambler{
       split();
     }
     else{
-      System.out.println("Invalid choice! Try again!");
+      System.out.println("Invalid choice! Try again!\n");
     }
     return false;
   }
 
   public void split(){
-    int temp = Deck.valueOf((String)hand.get(0));
-    Gambler splitHand = new Player(deckInPlay, (String)hand.remove(0));
-    inHand -= temp;
-    totalPlayers.add(splitHand);
+    System.out.println("Splitting hand!\n");
+    aceIndex = -1; // reset aceIndex
+    String splitCard = (String)hand.remove(0);
+    inHand = Deck.valueOf((String)hand.get(0));
     hit();
+
+    totalPlayers.add(new Player(deckInPlay, splitCard));
   }
 
 }
