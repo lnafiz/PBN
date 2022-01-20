@@ -88,3 +88,15 @@ v2: Bug fixes (especially in aceCheck()), less code and text
     (aimed for readability), addition of Dealer, shuffled order
     of users, began commenting methods to provide insight.
 ==============================================================
+2022-01-20
+--------------------------------------------------------------
+Nafiz :: Added first version of instructions within game
+         Collaboration on v3
+Prattay :: Testing main method for different game situations,
+           split and double edits
+           Collaboration on v3
+Brian :: Filling in code for more actions (double, split)
+         Collaboration on v3
+
+v2: More bug fixes, instructions present with implementable action,
+    added code for methods split and double.
