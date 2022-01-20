@@ -14,18 +14,19 @@ public class Deck{
     shuffle(cardsRemaining);
   }
 
-  private static void shuffle( ArrayList cr ) {
+  // HELPER METHODS ============================================================
+  public static void shuffle( ArrayList al ) {
     int randomIndex;
-    for( int i = cr.size()-1; i > 0; i-- ) {
+    for( int i = al.size()-1; i > 0; i-- ) {
       //pick an index at random
       randomIndex = (int)( (i+1) * Math.random() );
       //swap the values at position i and randomIndex
-      cr.set( i, cr.set( randomIndex, cr.get(i) ) );
+      al.set( i, al.set( randomIndex, al.get(i) ) );
     }
   }
 
   public static int valueOf(String card){
-    String value = card.substring(0, card.length() - 2); // -3 because the suit counts as 3 characters.
+    String value = card.substring(0, card.indexOf(" "));
     // System.out.println(card + "'s value is " + value + ". card's length() is " + card.length()); // diag
     int i = -1;
     if (value.equals("J") || value.equals("Q") || value.equals("K")){
@@ -37,25 +38,23 @@ public class Deck{
     else{
       try{
         i = Integer.parseInt(value);
-      } catch(NumberFormatException ex){}
+      } catch(NumberFormatException error){}
     }
-    return i; // if it gets to this, there is something wrong.
+    return i; // if i is still -1, there is something wrong.
   }
-
-
-// should be in Woo.java
-  // public int countCards(ArrayList cr){
-  //   int total = 0;
-  //   for (String element : DECK){
-  //     if
-  //   }
-  //
-  // }
+  // ===========================================================================
 
   private final String[] DECK = {
-  "A♠", "2♠", "3♠", "4♠", "5♠", "6♠", "7♠", "8♠", "9♠", "10♠", "J♠", "Q♠", "K♠",
-  "A♣", "2♣", "3♣", "4♣", "5♣", "6♣", "7♣", "8♣", "9♣", "10♣", "J♣", "Q♣", "K♣",
-  "A♥", "2♥", "3♥", "4♥", "5♥", "6♥", "7♥", "8♥", "9♥", "10♥", "J♥", "Q♥", "K♥",
-  "A♦", "2♦", "3♦", "4♦", "5♦", "6♦", "7♦", "8♦", "9♦", "10♦", "J♦", "Q♦", "K♦"};
+  "A ♠", "2 ♠", "3 ♠", "4 ♠", "5 ♠", "6 ♠", "7 ♠", "8 ♠", "9 ♠", "10 ♠", "J ♠", "Q ♠", "K ♠",
+  "A ♣", "2 ♣", "3 ♣", "4 ♣", "5 ♣", "6 ♣", "7 ♣", "8 ♣", "9 ♣", "10 ♣", "J ♣", "Q ♣", "K ♣",
+  "A ♥", "2 ♥", "3 ♥", "4 ♥", "5 ♥", "6 ♥", "7 ♥", "8 ♥", "9 ♥", "10 ♥", "J ♥", "Q ♥", "K ♥",
+  "A ♦", "2 ♦", "3 ♦", "4 ♦", "5 ♦", "6 ♦", "7 ♦", "8 ♦", "9 ♦", "10 ♦", "J ♦", "Q ♦", "K ♦"};
+
+  // deck for testing
+  // private final String[] DECK = {
+  // "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "2 ♠", "3 ♠", "4 ♠",
+  // "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "2 ♣", "3 ♣", "4 ♣",
+  // "A ♥", "A ♥", "A ♥", "A ♥", "A ♥", "A ♥", "A ♥", "A ♥", "A ♥", "A ♥", "2 ♥", "3 ♥", "4 ♥",
+  // "A ♦", "A ♦", "A ♦", "A ♦", "A ♦", "A ♦", "A ♦", "A ♦", "A ♦", "A ♦", "2 ♦", "3 ♦", "4 ♦"};
 
 }
