@@ -9,11 +9,12 @@ import java.util.ArrayList;
 public class Gambler{
   public ArrayList hand = new ArrayList<String>();
   public ArrayList deckInPlay;
+  public int aceIndex = -1;
   public int inHand = 0;
 
   public Gambler(ArrayList deckOfCards){
     deckInPlay = deckOfCards; // pass-by-ref
-    hit(); hit();
+    silentHit(); silentHit();
     // System.out.println(hand); // diag
     aceCheck();
     // System.out.println("inHand: " + inHand); // diag
@@ -23,29 +24,14 @@ public class Gambler{
     deckInPlay = deckOfCards; // pass-by-ref
     hand.add(splitCard);
     inHand = Deck.valueOf(splitCard);
-    hit();
+    silentHit();
     // System.out.println(hand); // diag
     aceCheck();
     // System.out.println("inHand: " + inHand); // diag
   }
 
-  // SET THIS TO DEALER'S NEXTMOVE
+  // expected to be overwritten
   public boolean nextMove(){
-
-    // later: remove inHand == 21 and inHand > 21, since they should be checked
-    // outside of nextMove. Blackjack or bust should be determined prior to
-    // selecting a move.
-
-    // if (input.equals("hit")){// in development
-    //   hit();
-    // }
-    // else if (input.equals("stand")){
-    //   return stand();
-    // }
-    // else if ((input.equals("double")) && (hand.size() == 2)){
-    //   return doubleDown();
-    // }
-    // // split is a Player-only option
     return false;
   }
 
@@ -57,16 +43,20 @@ public class Gambler{
     return hand.toString();
   }
 
+  // checks if we need to turn an Ace's value of 11 to a value of 1.
   public void aceCheck(){
-    boolean acePresent = false;
-    for (int i = 0; i < hand.size(); i++){
+    int oldAceIndex = aceIndex;
+    for (int i = aceIndex + 1; i < hand.size(); i++){
       if (Deck.valueOf((String)hand.get(i)) == 11 && inHand > 21){
+        // at the first occurence of an Ace, lower inHand value by 10.
         inHand -= 10;
-        acePresent = true;
+        aceIndex = i;
         break;
       }
     }
-    if (acePresent && inHand > 21){
+    if (aceIndex > oldAceIndex && inHand > 21){
+      // if, after the first aceCheck, there is still a bust, check if you can
+      // do another aceCheck on the remaining, unchecked cards.
       aceCheck();
     }
   }
@@ -74,16 +64,30 @@ public class Gambler{
   public void hit(){
     hand.add(deckInPlay.remove(0));
     inHand += Deck.valueOf((String)hand.get(hand.size() - 1));
+    System.out.println("Hit! Drew a " + (String)hand.get(hand.size() - 1));
+    System.out.println("New hand: " + hand);
+    aceCheck();
+    System.out.println("New hand value: " + inHand);
+    System.out.println();
+  }
+
+  public void silentHit(){ // only to be used when you don't want the "Hit!" message.
+    hand.add(deckInPlay.remove(0));
+    inHand += Deck.valueOf((String)hand.get(hand.size() - 1));
   }
 
   public boolean stand(){
+    System.out.println("End turn.\n");
     return true;
   }
 
   public boolean doubleDown(){
+    System.out.println("Double!\n");
     hit();
     return stand();
   }
 
-  // split is a Player-only option.
+  public void split(){
+    // split is a Player-only option.
+  }
 }
