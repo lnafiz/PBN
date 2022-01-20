@@ -6,23 +6,23 @@
 
 // TO DO:
 // change visibility of stuff, add mutator methods.
-// move the stuff from main method to another file?
-// shuffle player order
+// move the stuff from main method to another file? maybe?
 // add scores/balance
-// use dealer
 // HI-LO CARD COUNTING
 
-import java.io.*;
-import java.util.*;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Woo{
   public static void main(String[] args){
     Deck deck = new Deck();
     int numBots = 0;
     Gambler[] totalBots = new Bot[0];
-    ArrayList totalPlayers = new ArrayList<Gambler>();
-    Gambler humanPlayer = new Player(deck.cardsRemaining, totalPlayers);
-    System.out.println(deck.cardsRemaining); // diag
+    ArrayList totalGamblers = new ArrayList<Gambler>();
+    Gambler humanPlayer = new Player(deck.cardsRemaining, totalGamblers);
+    // System.out.println(deck.cardsRemaining); // diag
 
     InputStreamReader isr = new InputStreamReader(System.in);
     BufferedReader in = new BufferedReader(isr);
@@ -41,33 +41,36 @@ public class Woo{
       System.out.println("Invalid number of bots! Playing alone.");
     }
 
-    // cannot use foreach loop because it would create a copy of reference.
+    Dealer dealer = new Dealer(deck.cardsRemaining);
+
     for (int i = 0; i < totalBots.length; i++){
       totalBots[i] = new Bot(deck.cardsRemaining); // draws 2 from cardsRemaining
+      totalGamblers.add(totalBots[i]);
     }
+    totalGamblers.add(humanPlayer);
 
-    // redundant?
-    for (int i = 0; i < totalBots.length; i++){
-      totalPlayers.add(totalBots[i]);
-    }
-    totalPlayers.add(humanPlayer);
+    // shuffle order of gamblers
+    Deck.shuffle(totalGamblers);
 
-    System.out.println("diag: " + totalPlayers); // diag
+    // System.out.println("diag: " + totalGamblers); // diag
 
-    System.out.println("Remaining cards in the deck: " + deck.cardsRemaining); // diag
-    System.out.println("Remaining # of cards: " + deck.cardsRemaining.size()); // diag
+    // System.out.println("Remaining cards in the deck: " + deck.cardsRemaining); // diag
+    // System.out.println("Remaining # of cards: " + deck.cardsRemaining.size()); // diag
 
-    for (int i = 0; i < totalPlayers.size(); i++){
+    for (int i = 0; i < totalGamblers.size(); i++){
       Gambler gambler;
-      int gamblerHand;
-      System.out.println(totalPlayers.get(i)); // diag
-      if (totalPlayers.get(i) instanceof Bot){
-        gambler = (Bot)(totalPlayers.get(i));
+      // System.out.println(totalGamblers.get(i)); // diag
+      if (totalGamblers.get(i) instanceof Bot){
+        gambler = (Bot)(totalGamblers.get(i));
       }
       else{
-      // if (totalPlayers.get(i) instanceOf Player){
-        gambler = (Player)(totalPlayers.get(i));
+      // if not Bot, then it is a Player.
+        gambler = (Player)(totalGamblers.get(i));
       }
+
+      System.out.println("Now on gambler " + (i+1) + " of " + totalGamblers.size() + ".");
+      System.out.println("Current hand: " + gambler.hand);
+      System.out.println();
 
       while (true){
         gambler.aceCheck();
@@ -80,10 +83,37 @@ public class Woo{
           break;
         }
         if (gambler.nextMove() == true){
+          if (gambler.inHand == 21){
+            System.out.println("Blackjack!");
+          }
+          else if (gambler.inHand > 21){
+            System.out.println("Bust!");
+          }
           break;
         }
       }
-
     }
-  }
-}
+
+    System.out.println("\nDealer's turn!");
+    dealer.reveal();
+    dealer.nextMove();
+
+    for (int i = 0; i < totalGamblers.size(); i++){
+      if (totalGamblers.get(i) instanceof Player){
+        int handTotal = ((Player)(totalGamblers.get(i))).getInHand();
+        if ((handTotal > dealer.getInHand() && handTotal < 21) ||
+            (dealer.getInHand() > 21 && handTotal < 21)){
+          System.out.println("Win!\n");
+        }
+        else if (handTotal == dealer.getInHand()){
+          System.out.println("Push!\n");
+        }
+        else{
+          System.out.println("Lose!\n");
+        }
+      }
+    }
+
+  } // end main
+} // end class
+
