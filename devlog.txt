@@ -6,30 +6,12 @@ pd 6
 ---------------------
 Blackjack
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-USAGE:
-* Replace all fields, angle brackets included, with specified info.
-  eg, pd <pd#> --> pd 3
-* Delete this instruction block once all teammates understand usage.
-
-devlog--
-Use keyboard shortcut to jump to end,
- replicate entry template,
- modify appropriately.
-
-zone of reflection--
-Flesh out each category whenever necessary, appropriate.
- Need not be fully filled in until end of project,
- but best done as you go along.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
+- we learned to use a normal for loop instead of enhanced for loop when it came to modifying an array of objects.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,6 +21,7 @@ maybe some of these will move into the Obs.Ovrcm section...
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
+- using an enhanced for loop doesn't modify the elements within the supplied array directly. instead, it creates a copy of each element in the array. 
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -94,9 +77,14 @@ v1: Progresses to manipulating hand, reduced uses of unnecessary
 ==============================================================
 2022-01-19
 --------------------------------------------------------------
-Nafiz :: Declutter duty (remove unnecessary code/text)
+Nafiz :: Declutter duty (remove unnecessary code/text).
+         Collaboration on v2
 Prattay :: Testing main method for different game situations
-Brian :: Started v2 edits to code
+           Collaboration on v2
+Brian :: Collaboration on v2
+         Initial development of Dealer, furthered main method.
 
-v2: Bug fixes, less code and text (aimed for readability).
+v2: Bug fixes (especially in aceCheck()), less code and text 
+    (aimed for readability), addition of Dealer, shuffled order
+    of users, began commenting methods to provide insight.
 ==============================================================
