@@ -22,7 +22,8 @@ public class Player extends Gambler{
     InputStreamReader isr = new InputStreamReader(System.in);
     BufferedReader in = new BufferedReader(isr);
     System.out.println("Your turn!");
-    System.out.println("Your hand is... " + showHand());
+    System.out.println("Your hand is... " +
+ showHand());
     System.out.println("The value of your hand is " + inHand + ".");
     System.out.println("What would you like to do? Your options (right now) are:");
     System.out.println(" 1: hit \n 2: stand \n 3: double \n 4: split \n 5: count cards (eta s0n)");
@@ -30,12 +31,15 @@ public class Player extends Gambler{
     catch (IOException e) {}
 
     if (input == 1){
+      System.out.println("--------------------------------"); // divider to make it easier to read
       hit();
     }
     else if (input == 2){
+      System.out.println("--------------------------------");
       return stand();
     }
     else if (input == 3 && hand.size() == 2){
+      System.out.println("--------------------------------");
       return doubleDown();
     }
     else if (input == 4 && hand.size() == 2 &&
@@ -48,6 +52,7 @@ public class Player extends Gambler{
     return false;
   }
 
+  // invokes constructor to create a new Player, moves first card from original player to new player as the new hand value.
   public void split(){
     System.out.println("Splitting hand!\n");
     aceIndex = -1; // reset aceIndex
