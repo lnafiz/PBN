@@ -27,11 +27,20 @@ public class Dealer extends Gambler{
     System.out.println();
   }
 
-  public boolean nextMove(){
-    while (inHand < 18){
+  public void playTurn(){
+    aceCheck();
+    while (inHand < 17){
       hit();
     }
-    return true;
+    if (inHand == 21){
+      System.out.println("Dealer gets Blackjack!");
+    }
+    else if (inHand > 21){
+      System.out.println("Dealer Busts!");
+    }
+    else{
+      System.out.println("Dealer stands at " + inHand + "!");
+    }
   }
-}
 
+}

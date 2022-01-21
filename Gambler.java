@@ -11,6 +11,7 @@ public class Gambler{
   public ArrayList deckInPlay;
   public int aceIndex = -1;
   public int inHand = 0;
+  private int creditMultiplier = 1;
 
   public Gambler(ArrayList deckOfCards){
     deckInPlay = deckOfCards; // pass-by-ref
@@ -33,6 +34,18 @@ public class Gambler{
   // expected to be overwritten
   public boolean nextMove(){
     return false;
+  }
+
+  // expected to be overwritten
+  public void playTurn(){
+  }
+
+  public int getCredMultiplier(){
+    return creditMultiplier;
+  }
+
+  public void resetCredMultiplier(){
+    creditMultiplier = 1;
   }
 
   public int getInHand(){
@@ -84,6 +97,7 @@ public class Gambler{
   public boolean doubleDown(){
     System.out.println("Double!\n");
     hit();
+    creditMultiplier *= 2;
     return stand();
   }
 

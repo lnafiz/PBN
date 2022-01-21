@@ -7,7 +7,7 @@
 import java.util.ArrayList;
 
 public class Deck{
-  public ArrayList cardsRemaining = new ArrayList<String>();
+  public ArrayList cardsRemaining = new ArrayList<String>(); // ArrayList version of DECK, will be changed through the course of the game.
 
   public Deck(){
     for (String element : DECK){ cardsRemaining.add(element); }
@@ -15,6 +15,7 @@ public class Deck{
   }
 
   // HELPER METHODS ============================================================
+  // shuffles an ArrayList
   public static void shuffle( ArrayList al ) {
     int randomIndex;
     for( int i = al.size()-1; i > 0; i-- ) {
@@ -25,8 +26,9 @@ public class Deck{
     }
   }
 
+  // used to find the integer value of each card in the deck, suit does not matter
   public static int valueOf(String card){
-    String value = card.substring(0, card.indexOf(" "));
+    String value = card.substring(0, card.indexOf(" ")); // isolates only the numerical value of each card, excluding its suit
     // System.out.println(card + "'s value is " + value + ". card's length() is " + card.length()); // diag
     int i = -1;
     if (value.equals("J") || value.equals("Q") || value.equals("K")){
