@@ -10,14 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Blackjack{
-  Deck deck;
-  int numBots;
-  Gambler[] totalBots;
-  ArrayList totalGamblers;
-  Gambler humanPlayer;
-  InputStreamReader isr;
-  BufferedReader in;
-  Dealer dealer;
+  private Deck deck;
+  private int numBots;
+  private Gambler[] totalBots;
+  private ArrayList totalGamblers;
+  private Gambler humanPlayer;
+  private InputStreamReader isr;
+  private BufferedReader in;
+  private Dealer dealer;
   private int playCredits;
 
   public Blackjack(){
@@ -25,7 +25,7 @@ public class Blackjack{
     numBots = 0;
     totalBots = new Bot[0];
     totalGamblers = new ArrayList<Gambler>();
-    humanPlayer = new Player(deck.cardsRemaining, totalGamblers);
+    humanPlayer = new Player(deck.getCardsRemaining(), totalGamblers);
     isr = new InputStreamReader(System.in);
     in = new BufferedReader(isr);
   }
@@ -56,10 +56,10 @@ public class Blackjack{
       System.out.println("Invalid number of bots! Playing alone.");
     }
 
-    dealer = new Dealer(deck.cardsRemaining);
+    dealer = new Dealer(deck.getCardsRemaining());
 
     for (int i = 0; i < totalBots.length; i++){
-      totalBots[i] = new Bot(deck.cardsRemaining); // draws 2 from cardsRemaining
+      totalBots[i] = new Bot(deck.getCardsRemaining()); // draws 2 from cardsRemaining
       totalGamblers.add(totalBots[i]);
     }
     totalGamblers.add(humanPlayer);
@@ -96,6 +96,10 @@ public class Blackjack{
 
     for (int i = 0; i < totalGamblers.size(); i++){
       if (totalGamblers.get(i) instanceof Player){
+        if (((Player)(totalGamblers.get(i))).isFromSplit()){
+          playCredits -= 1;
+        } // if there was a split, use up another play credit
+
         int handTotal = ((Player)(totalGamblers.get(i))).getInHand();
         if ((handTotal > dealer.getInHand() && handTotal <= 21) ||
         (dealer.getInHand() > 21 && handTotal <= 21)){

@@ -7,11 +7,15 @@
 import java.util.ArrayList;
 
 public class Deck{
-  public ArrayList cardsRemaining = new ArrayList<String>(); // ArrayList version of DECK, will be changed through the course of the game.
+  private ArrayList cardsRemaining = new ArrayList<String>(); // ArrayList version of DECK, will be changed through the course of the game.
 
   public Deck(){
     for (String element : DECK){ cardsRemaining.add(element); }
     shuffle(cardsRemaining);
+  }
+
+  public ArrayList getCardsRemaining(){
+    return cardsRemaining;
   }
 
   // HELPER METHODS ============================================================

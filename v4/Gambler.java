@@ -7,11 +7,13 @@
 import java.util.ArrayList;
 
 public class Gambler{
-  public ArrayList hand = new ArrayList<String>();
-  public ArrayList deckInPlay;
-  public int aceIndex = -1;
-  public int inHand = 0;
-  private int creditMultiplier = 1;
+  protected ArrayList hand = new ArrayList<String>();
+  protected ArrayList deckInPlay;
+  protected int aceIndex = -1;
+  protected int inHand = 0;
+  protected int creditMultiplier = 1;
+  protected boolean splitOrigin = false;
+
 
   public Gambler(ArrayList deckOfCards){
     deckInPlay = deckOfCards; // pass-by-ref
@@ -22,6 +24,7 @@ public class Gambler{
   }
 
   public Gambler(ArrayList deckOfCards, String splitCard){
+    splitOrigin = true;
     deckInPlay = deckOfCards; // pass-by-ref
     hand.add(splitCard);
     inHand = Deck.valueOf(splitCard);
@@ -40,8 +43,16 @@ public class Gambler{
   public void playTurn(){
   }
 
+  public boolean isFromSplit(){
+    return splitOrigin;
+  }
+
   public int getCredMultiplier(){
     return creditMultiplier;
+  }
+
+  public ArrayList getHand(){
+    return hand;
   }
 
   public void resetCredMultiplier(){
@@ -87,6 +98,7 @@ public class Gambler{
   public void silentHit(){ // only to be used when you don't want the "Hit!" message.
     hand.add(deckInPlay.remove(0));
     inHand += Deck.valueOf((String)hand.get(hand.size() - 1));
+    aceCheck();
   }
 
   public boolean stand(){
