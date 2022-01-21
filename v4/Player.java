@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Player extends Gambler{
-  public ArrayList totalPlayers;
+  protected ArrayList totalPlayers;
 
   public Player(ArrayList deckOfCards, ArrayList players){
     super(deckOfCards);
