@@ -98,5 +98,7 @@ Prattay :: Testing main method for different game situations,
 Brian :: Filling in code for more actions (double, split)
          Collaboration on v3
 
-v2: More bug fixes, instructions present with implementable action,
-    added code for methods split and double.
+v3: More bug fixes, instructions present with implementable action,
+    added code for methods split and double, creation of Blackjack.java
+    (organization of Woo.java's main method into a separate class), 
+    added play credit system, refactored existing methods.
