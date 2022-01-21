@@ -5,7 +5,7 @@
 // time spent: 1.2 hrs
 
 // TO DO:
-// change visibility of stuff, add mutator methods. (done for some)
+// ansi (terminally ill)
 // HI-LO CARD COUNTING
 
 import java.io.InputStreamReader;

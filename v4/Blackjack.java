@@ -106,7 +106,7 @@ public class Blackjack{
           playCredits += 2 * (((Player)(totalGamblers.get(i))).getCredMultiplier()); // if doubled, then win 2x
           System.out.println("Win! Your new number of play credits is " + playCredits + "!\n");
         }
-        else if (handTotal == dealer.getInHand()){
+        else if (handTotal == dealer.getInHand() && handTotal <= 21){
           playCredits += 1;
           System.out.println("Push! Keep your play credit.\n");
         }

@@ -68,7 +68,7 @@ public class Gambler{
   }
 
   // checks if we need to turn an Ace's value of 11 to a value of 1.
-  public void aceCheck(){
+  protected void aceCheck(){
     int oldAceIndex = aceIndex;
     for (int i = aceIndex + 1; i < hand.size(); i++){
       if (Deck.valueOf((String)hand.get(i)) == 11 && inHand > 21){
