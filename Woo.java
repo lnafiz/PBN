@@ -2,16 +2,10 @@
 // APCS pd6
 // FP -- Blackjack
 // 2022-01-14
-// time spent: 1.2 hrs
+// time spent: 5.2 hrs
 
 // TO DO:
-// change visibility of stuff, add mutator methods. (done for some)
-// HI-LO CARD COUNTING
-
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.util.ArrayList;
+// ansi (terminally ill)
 
 public class Woo{
   public static void main(String[] args){
@@ -26,6 +20,8 @@ public class Woo{
       game.playDealer();
       game = new Blackjack(game.getCredits()); // reset Blackjack
     }
+
+    System.out.println("Unfortunately, you have run out of credits. Goodbye.\n");
 
   } // end main
 } // end class

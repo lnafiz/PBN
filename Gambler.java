@@ -2,46 +2,50 @@
 // APCS pd6
 // FP -- Blackjack
 // 2022-01-14
-// time spent: 1.2 hrs
+// time spent: 5.2 hrs
 
 import java.util.ArrayList;
 
 public class Gambler{
-  public ArrayList hand = new ArrayList<String>();
-  public ArrayList deckInPlay;
-  public int aceIndex = -1;
-  public int inHand = 0;
-  private int creditMultiplier = 1;
+  protected ArrayList hand = new ArrayList<String>();
+  protected ArrayList deckInPlay;
+  protected int aceIndex = -1;
+  protected int inHand = 0;
+  protected int creditMultiplier = 1;
+  protected boolean splitOrigin = false;
 
+  // constr: Gambler is instantiated and draws 2 cards.
   public Gambler(ArrayList deckOfCards){
-    deckInPlay = deckOfCards; // pass-by-ref
+    deckInPlay = deckOfCards; // passses a ref
     silentHit(); silentHit();
-    // System.out.println(hand); // diag
     aceCheck();
+    // System.out.println(hand); // diag
     // System.out.println("inHand: " + inHand); // diag
   }
 
+  // overloaded constr: Gambler is instantiated with a card already in hand.
   public Gambler(ArrayList deckOfCards, String splitCard){
-    deckInPlay = deckOfCards; // pass-by-ref
+    splitOrigin = true;
+    deckInPlay = deckOfCards; // passes a ref
     hand.add(splitCard);
     inHand = Deck.valueOf(splitCard);
     silentHit();
-    // System.out.println(hand); // diag
     aceCheck();
+    // System.out.println(hand); // diag
     // System.out.println("inHand: " + inHand); // diag
   }
 
-  // expected to be overwritten
-  public boolean nextMove(){
-    return false;
-  }
-
-  // expected to be overwritten
-  public void playTurn(){
+  // getter methods ===========================================================
+  public boolean isFromSplit(){
+    return splitOrigin;
   }
 
   public int getCredMultiplier(){
     return creditMultiplier;
+  }
+
+  public ArrayList getHand(){
+    return hand;
   }
 
   public void resetCredMultiplier(){
@@ -55,9 +59,36 @@ public class Gambler{
   public String showHand(){
     return hand.toString();
   }
+  // ==========================================================================
+
+  // expected to be overwritten
+  public boolean nextMove(){
+    return true;
+  }
+
+  // expected to be overwritten
+  public void playTurn(){
+  }
+
+  // gets the card count of a hand.
+  // uses HI-LO card counting system.
+  // 2-6 = +1, 7-9 = 0, 10-A = -1 (inclusive)
+  public int cardCount(){
+    int count = 0;
+    for (int i = 0; i < hand.size(); i++){
+      if (Deck.valueOf((String)hand.get(i)) <= 6){
+        count += 1;
+      }
+      else if (Deck.valueOf((String)hand.get(i)) >= 10){
+        count -= 1;
+      }
+    }
+    return count;
+  }
 
   // checks if we need to turn an Ace's value of 11 to a value of 1.
-  public void aceCheck(){
+  // (soft vs. hard ace)
+  protected void aceCheck(){
     int oldAceIndex = aceIndex;
     for (int i = aceIndex + 1; i < hand.size(); i++){
       if (Deck.valueOf((String)hand.get(i)) == 11 && inHand > 21){
@@ -74,7 +105,8 @@ public class Gambler{
     }
   }
 
-  public void hit(){
+  // draw a card
+  protected void hit(){
     hand.add(deckInPlay.remove(0));
     inHand += Deck.valueOf((String)hand.get(hand.size() - 1));
     System.out.println("Hit! Drew a " + (String)hand.get(hand.size() - 1));
@@ -84,24 +116,28 @@ public class Gambler{
     System.out.println();
   }
 
-  public void silentHit(){ // only to be used when you don't want the "Hit!" message.
+  // only to be used when you don't want the "Hit!" message. used in constructor.
+  protected void silentHit(){
     hand.add(deckInPlay.remove(0));
     inHand += Deck.valueOf((String)hand.get(hand.size() - 1));
+    aceCheck();
   }
 
-  public boolean stand(){
+  // stand, no more moves made.
+  protected boolean stand(){
     System.out.println("End turn.\n");
     return true;
   }
 
-  public boolean doubleDown(){
+  // draws a card, then stands.
+  protected boolean doubleDown(){
     System.out.println("Double!\n");
     hit();
     creditMultiplier *= 2;
     return stand();
   }
 
-  public void split(){
+  protected void split(){
     // split is a Player-only option.
   }
 }

@@ -2,16 +2,20 @@
 // APCS pd6
 // FP -- Blackjack
 // 2022-01-14
-// time spent: 1.2 hrs
+// time spent: 5.2 hrs
 
 import java.util.ArrayList;
 
 public class Deck{
-  public ArrayList cardsRemaining = new ArrayList<String>(); // ArrayList version of DECK, will be changed through the course of the game.
+  private ArrayList cardsRemaining = new ArrayList<String>(); // ArrayList version of DECK, will be changed through the course of the game.
 
   public Deck(){
     for (String element : DECK){ cardsRemaining.add(element); }
     shuffle(cardsRemaining);
+  }
+
+  public ArrayList getCardsRemaining(){
+    return cardsRemaining;
   }
 
   // HELPER METHODS ============================================================
@@ -26,10 +30,9 @@ public class Deck{
     }
   }
 
-  // used to find the integer value of each card in the deck, suit does not matter
+  // used to find the int value of each card in the deck, suit does not matter
   public static int valueOf(String card){
     String value = card.substring(0, card.indexOf(" ")); // isolates only the numerical value of each card, excluding its suit
-    // System.out.println(card + "'s value is " + value + ". card's length() is " + card.length()); // diag
     int i = -1;
     if (value.equals("J") || value.equals("Q") || value.equals("K")){
       return 10;
@@ -52,7 +55,7 @@ public class Deck{
   "A ♥", "2 ♥", "3 ♥", "4 ♥", "5 ♥", "6 ♥", "7 ♥", "8 ♥", "9 ♥", "10 ♥", "J ♥", "Q ♥", "K ♥",
   "A ♦", "2 ♦", "3 ♦", "4 ♦", "5 ♦", "6 ♦", "7 ♦", "8 ♦", "9 ♦", "10 ♦", "J ♦", "Q ♦", "K ♦"};
 
-  // deck for testing
+  // deck for testing splits and aceCheck
   // private final String[] DECK = {
   // "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "A ♠", "2 ♠", "3 ♠", "4 ♠",
   // "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "A ♣", "2 ♣", "3 ♣", "4 ♣",

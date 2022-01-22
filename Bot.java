@@ -2,7 +2,7 @@
 // APCS pd6
 // FP -- Blackjack
 // 2022-01-14
-// time spent: 1.2 hrs
+// time spent: 5.2 hrs
 
 import java.util.ArrayList;
 
@@ -13,6 +13,7 @@ public class Bot extends Gambler{
     // System.out.println("inHand: " + inHand); // diag
   }
 
+  // chooses to hit, stand, or double based on Math.random()
   public boolean nextMove(){
     System.out.println("This bot's hand is... " + showHand());
     System.out.println("The value of the bot's hand is " + inHand + ".\n");
@@ -29,6 +30,7 @@ public class Bot extends Gambler{
     return false;
   }
 
+  // keeps choosing nextMove until blackjack, bust, stand, or double is used.
   public void playTurn(){
     while (true){
       aceCheck();
@@ -42,7 +44,7 @@ public class Bot extends Gambler{
         System.out.println("Bust!\n");
         break;
       }
-      else if (nextMove()){ // either stand or double was used
+      else if (nextMove()){ // if either stand or double was used:
         if (inHand == 21){
           System.out.println("Blackjack!\n");
         }
