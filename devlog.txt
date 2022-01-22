@@ -102,7 +102,8 @@ v3: More bug fixes, instructions present with implementable action,
     added code for methods split and double, creation of Blackjack.java
     (organization of Woo.java's main method into a separate class), 
     added play credit system, refactored existing methods.
-2022-01-20
+==============================================================
+2022-01-21
 --------------------------------------------------------------
 Nafiz :: Added more instructions, tested credit system
          Collaboration on v4
@@ -112,3 +113,13 @@ Brian :: Added mutator methods
          Collaboration on v4
 
 v4: More bug fixes, added more to instructions, mutated methods 
+==============================================================
+2022-01-22
+--------------------------------------------------------------
+Nafiz :: Collaboration on v5, playtesting
+Prattay :: Collaboration on v5, playtesting
+Brian :: Collaboration on v5, planning on using ANSI
+
+v4: Added card counting, formatting, added comments for each method,
+    cleaned up unnecessary code, split large methods into several smaller
+    methods, general bug fixes
