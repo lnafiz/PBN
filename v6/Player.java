@@ -36,7 +36,7 @@ public class Player extends Gambler{
     InputStreamReader isr = new InputStreamReader(System.in);
     BufferedReader in = new BufferedReader(isr);
 
-    System.out.println(TerminallyIll.color(36,TerminallyIll.DARK) + "Your turn!");
+    System.out.println(TerminallyIll.color(35,TerminallyIll.BRIGHT) + "Your turn!");
     System.out.println("Your hand is... " + showHand());
     System.out.println("The value of your hand is " + inHand + "." + TerminallyIll.RESET);
     System.out.println("What would you like to do? Your options (right now) are:");
