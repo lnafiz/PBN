@@ -12,24 +12,35 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
 - we learned to use a normal for loop instead of enhanced for loop when it came to modifying an array of objects.
+- we provided memory addresses of some objects to other objects via passing it as an argument in a constructor.
+- we used typecasting to be able to invoke methods of elements in a parameterized ArrayList.
+- we got past the issue of unicode symbols being different lengths by including a space between the value of a card and the suit of the card.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
 maybe some of these will move into the Obs.Ovrcm section...
+- it was tedious to provide memory addresses of objects across Java files. perhaps there is a better method of doing so?
+- it was also tedious to have to use typecasting each time on elements of an ArrayList that is already parameterized. Why is that a thing? 
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
-- using an enhanced for loop doesn't modify the elements within the supplied array directly. instead, it creates a copy of each element in the array. 
+- using an enhanced for loop doesn't modify the elements within the supplied array directly. instead, it creates a copy of each element in the array and alters the copy.
+- different operating systems interpret unicode characters as a different length.
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
+- we changed Bots standing at a certain value to being solely dependent on Math.random() because we thought it was a more realistic indicator of the types of people that play blackjack (they are stupid).
+- we changed a score system to a play credit system because we thought a score system does not provide a legitimate deterrent from splitting or doubling every chance you get. by using a play credit system, players are charged an additional credit for those moves.
+- we changed the originally proposed blackjack() and bust() methods to be built into one while loop that checks for those conditions because we thought it was unnecessary. also, the names of some proposed methods were changed to be more clear.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
+- UMLs are a lifesaver
+- coding takes 10% of your time. planning and DEBUGGING takes the other 90%.
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -120,6 +131,15 @@ Nafiz :: Collaboration on v5, playtesting
 Prattay :: Collaboration on v5, playtesting
 Brian :: Collaboration on v5, planning on using ANSI
 
-v4: Added card counting, formatting, added comments for each method,
+v5: Added card counting, formatting, added comments for each method,
     cleaned up unnecessary code, split large methods into several smaller
     methods, general bug fixes
+    
+==============================================================
+2022-01-23
+--------------------------------------------------------------
+Nafiz :: Collaboration on v6, assistance with ANSI
+Prattay :: Collaboration on v6, assistance with ANSI
+Brian :: Collaboration on v6, implementation of ANSI
+
+v6: Code cleanup, ANSI implementation
