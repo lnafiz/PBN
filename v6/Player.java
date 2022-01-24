@@ -46,18 +46,18 @@ public class Player extends Gambler{
 
     if (input == 0){
       System.out.println("--------------------------------"); // divider to make it easier to read
-      System.out.println(" The goal of Blackjack is to have a hand worth as close as possible to 21 points without going over 21 points. \n\n Each card's number corresponds to their point value. For example, a 5 is worth 5 points. The symbols have no effect on point value. \n Face cards (jack, queen, king) are worth 10 points. Aces are worth 11 points. \n In the case that you have a hand worth over 21 points but have an ace, the ace's value decreases from 11 to 1. \n\n You have 5 options for actions: hit, stand, double, split, and card count."); 
+      System.out.println(" In Blackjack, you draw cards which add to a total amount of points you have. \nGoal: Have a hand worth as close as possible to 21 points without going over 21 points. \n\n Each card's number corresponds to their point value. For example, a 5 is worth 5 points. The symbols have no effect on point value. \n Face cards (jack, queen, king) are worth 10 points. Aces are worth 11 points. \n If you have a hand worth over 21 points but have an ace, the ace's value decreases from 11 to 1. \n\n You have 5 options for actions: hit, stand, double, split, and card count."); 
       System.out.println(TerminallyIll.color(31,TerminallyIll.BRIGHT) + "\n Hit means you draw a card." + TerminallyIll.RESET); 
       System.out.println(TerminallyIll.color(32,TerminallyIll.BRIGHT) + "\n Stand means that you end your turn with the number of points your hand is worth and the bots play." + TerminallyIll.RESET); 
       System.out.println(TerminallyIll.color(33,TerminallyIll.BRIGHT) + "\n Double is assigning the next drawn card a value 2 times its original. For example, if you use double and the next card is a 5, it is now worth 10 points. This is only possible once in your turn." + TerminallyIll.RESET); 
       System.out.println(TerminallyIll.color(34,TerminallyIll.BRIGHT) + "\n Split means dividing your hand into two hands, or two games. This is only possible once at the beginning of your turn and if you have two of the same card, such as two fives." + TerminallyIll.RESET); 
       System.out.println(TerminallyIll.color(35,TerminallyIll.BRIGHT) + "\n Card count is a tool that uses simple high-low probability to provide you with a probability of drawing a high value card. \n If you have a positive card count, you will most likely get a high-value card. \n On the other hand, if it's a negative card count, you will most likely NOT get a high-value card." + TerminallyIll.RESET); 
       System.out.println("\n\n Once your turn ends, wait for the bots to play through their game to determine who's the winner. If your hand is not the greastest, it's a bust, and you lose. If it's the greatest, Congratulations! You just won the game!"); 
-      System.out.println("\n\n To play the game, you spend credits. Credits work similar to tokens. You start out every game after java compile and run with 10 credits. Every game you play in a session requires 1 token as payment."); 
+      System.out.println("\n\n To play this game, you spend credits. Credits work similar to tokens. You start out every game after java compile and run with 10 credits. Every game you play in a session requires 1 token as payment."); 
       System.out.println(TerminallyIll.color(32,TerminallyIll.BRIGHT) + "\n If you win a game, you get 2 tokens, 1 for the token you just spent, and an extra as a reward."  + TerminallyIll.RESET); 
       System.out.println(TerminallyIll.color(31,TerminallyIll.BRIGHT) + "\n If you lose, you get no tokens." + TerminallyIll.RESET); 
       System.out.println(TerminallyIll.color(33,TerminallyIll.BRIGHT) + "\n If you tie with the dealer, you keep the token you used." + TerminallyIll.RESET);                   
-      System.out.println("\n When you reach 0 tokens, you lose and cannot play anymore. \n You would have to run again in order to play.");
+      System.out.println("\n When you reach 0 tokens, you lose and cannot play anymore.");
       System.out.println("--------------------------------"); // divider to make it easier to read
     }
     else if (input == 1){ // hit
