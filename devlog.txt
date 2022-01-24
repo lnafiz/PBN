@@ -138,7 +138,8 @@ v5: Added card counting, formatting, added comments for each method,
 ==============================================================
 2022-01-23
 --------------------------------------------------------------
-Nafiz :: Collaboration on v6, assistance with ANSI
+Nafiz :: Updated instructions, added color, overall aesthetic changes
+         Collaboration on v6, assistance with ANSI
 Prattay :: Collaboration on v6, assistance with ANSI
 Brian :: Collaboration on v6, implementation of ANSI
 
